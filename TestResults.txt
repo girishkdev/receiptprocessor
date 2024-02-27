@@ -1,0 +1,54 @@
+POST /receipts/process HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 257
+
+{
+    "retailer": "Walgreens",
+    "purchaseDate": "2022-01-02",
+    "purchaseTime": "08:13",
+    "total": "2.65",
+    "items": [
+        {"shortDescription": "Pepsi - 12-oz", "price": "1.25"},
+        {"shortDescription": "Dasani", "price": "1.40"}
+    ]
+}
+
+Response:
+{
+    "id": "1b41f9bd-c3e8-4f2a-a16e-24583bad0dc6"
+}
+
+
+-----------------------------------------
+
+POST /receipts/process HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 197
+
+{
+    "retailer": "Target",
+    "purchaseDate": "2022-01-02",
+    "purchaseTime": "13:13",
+    "total": "1.25",
+    "items": [
+        {"shortDescription": "Pepsi - 12-oz", "price": "1.25"}
+    ]
+}
+
+Response:
+{
+    "id": "8ac420fe-d4fa-4ba5-86c2-533ca66211d6"
+}
+
+
+----------------------------------------
+GET /receipts/8ac420fe-d4fa-4ba5-86c2-533ca66211d6/points HTTP/1.1
+Host: localhost:8080
+
+Response:
+{
+    "points": 100
+}
+
